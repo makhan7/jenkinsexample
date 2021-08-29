@@ -13,7 +13,7 @@ options {
         stage('Build') {
             steps {
 		 
-		        cmake arguments: '-DCMAKE_TOOLCHAIN_FILE=~/Projects/vcpkg/scripts/buildsystems/vcpkg.cmake', installation: 'InSearchPath'
+		        cmake arguments: '-DCMAKE_TOOLCHAIN_FILE=/home/makhan8/source/jenkinsexample/vcpkg/scripts/buildsystems/vcpkg.cmake', installation: 'InSearchPath'
                 cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
         }
