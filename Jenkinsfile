@@ -7,9 +7,7 @@ options {
 	}
 
 	parameters {
-		booleanParam name: 'RUN_TESTS', defaultValue: true, description: 'Run Tests?'
-		booleanParam name: 'RUN_ANALYSIS', defaultValue: true, description: 'Run Static Code Analysis?'
-		booleanParam name: 'DEPLOY', defaultValue: true, description: 'Deploy Artifacts?'
+		
 	}
 
 
@@ -17,7 +15,7 @@ options {
         stage('Build') {
             steps {
 		 
-		 cmake arguments: 'cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=/home/makhan8/source/jenkinsexample/vcpkg/scripts/buildsystems/vcpkg.cmake', installation: 'InSearchPath'
+		        cmake arguments: '-DCMAKE_TOOLCHAIN_FILE=~/Projects/vcpkg/scripts/buildsystems/vcpkg.cmake', installation: 'InSearchPath'
                 cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
         }
