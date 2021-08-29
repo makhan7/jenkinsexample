@@ -16,7 +16,8 @@ options {
 	stages {
         stage('Build') {
             steps {
-                cmake arguments: '-DCMAKE_TOOLCHAIN_FILE=~/home/makhan8/source/jenkinsexample/vcpkg/scripts/buildsystems/vcpkg.cmake', installation: 'InSearchPath'
+		  cmake arguments: cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=/home/makhan8/source/jenkinsexample/vcpkg/scripts/buildsystems/vcpkg.cmake
+
                 cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
             }
         }
